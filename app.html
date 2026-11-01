@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Трекер — Health Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-container">
+  <header class="app-header-nav" style="display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); margin-bottom: 24px;">
+    <a href="index.html" style="font-weight: 800; font-size: 1.2rem; color: var(--ink); text-decoration: none;">Health Tracker</a>
+    <a href="index.html" class="btn btn-ghost" style="padding: 8px 16px; font-size: 0.9rem;">На главную</a>
+  </header>
+  <header class="app-header">
+    <div class="app-header-top">
+      <div class="summary">
+        <p>Сегодня выполнено <span id="done-today">0</span> из <span id="total-habits">6</span></p>
+        <p>Лучшая серия: <span id="best-streak">0</span> дн.</p>
+      </div>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-bar__fill" id="progress-fill" style="width: 0%"></div>
+    </div>
+  </header>
+
+  <div id="corrupt-box" class="corrupt-box" style="display:none">
+    <p>Данные в браузере повреждены и не могли быть загружены.</p>
+    <button type="button" id="reset-all-btn">Сбросить данные</button>
+  </div>
+
+  <main class="app">
+  <div id="empty-state" class="empty-state" hidden>
+    <p>Отметь первую привычку, чтобы начать серию</p>
+  </div>
+  <div id="first-hint" class="hint" hidden>
+    <p>Отметь привычку кнопкой «Сегодня: выполнено», чтобы начать серию.</p>
+    <button type="button" id="hint-close">Понятно</button>
+  </div>
+  <div class="habits-grid" id="habits-list"></div>
+</main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

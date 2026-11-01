@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health Tracker: трекер полезных привычек</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-container">
+    <a href="#" class="logo">Health Tracker</a>
+    <nav class="header-nav">
+      <a href="#habits">Привычки</a>
+      <a href="#how-it-works">Как это работает</a>
+      <a href="#audience">Для кого</a>
+      <a href="#authors">Об авторах</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="app.html" class="btn btn-primary header-btn">Открыть трекер</a>
+  </div>
+</header>
+<main class="landing">
+<div class="hero-section" style="text-align: center; padding: 40px 20px;">
+  <h1>Health Tracker: трекер полезных привычек</h1>
+  <p class="subtitle">Трекер твоих ежедневных побед. Зарядка, шаги, вода и сон — отмечай прогресс каждый день, не сливайся и стань лучшей версией себя. Без регистраций и сложных графиков.</p>
+  <div style="margin-top: 30px;">
+    <a href="app.html" class="btn btn-primary" style="font-size: 1.2rem; padding: 16px 40px;">Открыть трекер</a>
+  </div>
+</div>
+
+<section class="block" id="habits">
+  <h2 class="section-title">6 полезных привычек</h2>
+  <div class="habits-grid" id="landing-habits"></div>
+</section>
+
+<section class="block" id="how-it-works">
+  <h2 class="section-title">3 шага к полезным привычкам</h2>
+  <div class="rules-grid">
+    <div class="rule-card">
+      <div class="rule-icon">✅</div>
+      <h3>Отмечай привычки</h3>
+      <p>Сделал зарядку или выпил воду — нажми кнопку. Просто и быстро.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-icon">📈</div>
+      <h3>Следи за прогрессом</h3>
+      <p>Трекер считает твою серию успешных дней и показывает статистику за неделю.</p>
+    </div>
+    <div class="rule-card">
+      <div class="rule-icon">💪</div>
+      <h3>Формируй здоровье</h3>
+      <p>Регулярность важнее рывка. Маленькие шаги каждый день приводят к большим результатам.</p>
+    </div>
+  </div>
+</section>
+
+<section id="audience" class="block" style="text-align: center; padding: 40px 20px; max-width: 800px; margin: 0 auto;">
+  <h2 class="section-title">Для кого этот трекер?</h2>
+  <p style="color: var(--ink-soft); font-size: 1.1rem; margin-top: 20px;">Наш проект создан для учащихся 8–11 классов, которые хотят стать дисциплинированнее, высыпаться, больше двигаться и заботиться о своем здоровье. Трекер поможет не забывать о простых, но важных вещах.</p>
+</section>
+
+<section class="block faq" id="faq">
+  <h2>FAQ</h2>
+  <details>
+    <summary>Нужна ли регистрация?</summary>
+    <p>Нет. Регистрации и аккаунтов нет — открой трекер и начинай.</p>
+  </details>
+  <details>
+    <summary>Где хранятся данные?</summary>
+    <p>Только в твоём браузере (localStorage). Ничего не отправляется на сервер и не публикуется в интернет.</p>
+  </details>
+  <details>
+    <summary>Что будет, если очистить браузер?</summary>
+    <p>Данные удалятся, так как они хранятся локально. Синхронизации между устройствами и аккаунтов нет.</p>
+  </details>
+</section>
+
+<section id="authors" class="block">
+  <h2 class="section-title">Об авторах проекта</h2>
+  <p style="margin-top: 20px;"><strong>Авторы:</strong> Толстобров Максим и Сергеев Владимир, ученики 10 «Т» класса</p>
+  <p style="color: var(--ink-soft);"><strong>Учебное заведение:</strong> ГБОУ г. Москвы "Школа №2033"</p>
+</section>
+
+<footer style="text-align: center; padding: 40px 20px; border-top: 1px solid var(--line); margin-top: 0; background: #ffffff;"> <p style="margin: 0 0 10px 0; font-weight: 600; font-size: 1.1rem; color: var(--ink);">Health Tracker: трекер полезных привычек</p> <p style="margin: 0; font-size: 0.9rem; color: var(--muted);">© 2026. Учебный проект.</p> </footer>
+</main>
+
+<script>
+const HABITS = [
+  { id: 'morning', name: 'Утренняя зарядка (10 минут)', desc: 'Лёгкая зарядка после пробуждения, чтобы разогнать кровь и проснуться.', icon: 'morning' },
+  { id: 'steps', name: '10 000 шагов', desc: 'Прогуляйся или побегай, набери 10 000 шагов за день.', icon: 'steps' },
+  { id: 'plank', name: 'Планка (сегодня)', desc: 'Стой в планке максимально долго, фиксируй время.', icon: 'plank' },
+  { id: 'water', name: 'Вода 1,5–2 литра', desc: 'Пей воду в течение дня, норма 1,5–2 литра.', icon: 'water' },
+  { id: 'sleep', name: 'Сон 8 часов', desc: 'Спи 8 часов, ложись и вставай в одно время.', icon: 'sleep' },
+  { id: 'workout', name: 'Тренировка / спортивная секция', desc: 'Посети тренировку или занимайся спортом.', icon: 'workout' },
+];
+const ICONS = {
+  morning: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>',
+  steps: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6l2 2V4h4v4l-2 2M5 16l2 2v-8h4v8l-2 2M10 6h4v4h-4zM10 16h4v4h-4zM3 22h18v2H3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  plank: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  water: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 12a8 8 0 0 0-5.66 5.66l-2.83-2.83a8 8 0 0 1 11.32 0zM12 16.5A3.5 3.5 0 1 0 16.5 12 3.5 3.5 0 0 0 12 16.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  sleep: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="1" y1="1" x2="23" y2="23" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  workout: '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="11" width="6" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="16" y="5" width="6" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="8" width="6" height="8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 16h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+};
+const grid = document.getElementById('landing-habits');
+HABITS.forEach(h => {
+  const card = document.createElement('a');
+  card.className = 'habit-card';
+  card.href = 'app.html';
+  const icon = document.createElement('div');
+  icon.className = 'habit-icon';
+  icon.innerHTML = ICONS[h.icon];
+  const name = document.createElement('h3');
+  name.className = 'habit-name';
+  name.textContent = h.name;
+  const desc = document.createElement('p');
+  desc.className = 'habit-desc';
+  desc.textContent = h.desc;
+  const arrow = document.createElement('span');
+  arrow.className = 'card-link';
+  arrow.textContent = 'Открыть в трекере →';
+  card.appendChild(icon);
+  card.appendChild(name);
+  card.appendChild(desc);
+  card.appendChild(arrow);
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>
