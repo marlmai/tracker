@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Трекер — Health Tracker</title>
 <link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 <div class="app-container">
@@ -23,6 +24,13 @@
       <div class="progress-bar__fill" id="progress-fill" style="width: 0%"></div>
     </div>
   </header>
+
+  <div class="stats-container">
+    <h2>Статистика за последние 30 дней</h2>
+    <div style="position: relative; height: 250px; width: 100%;">
+      <canvas id="monthlyChart"></canvas>
+    </div>
+  </div>
 
   <div id="corrupt-box" class="corrupt-box" style="display:none">
     <p>Данные в браузере повреждены и не могли быть загружены.</p>

@@ -1,7 +1,7 @@
 const STORAGE_KEY = 'sport-habits-v1';
 
 const HABITS = {
-  morning: { name: 'Утренняя зарядка (10 минут)', desc: 'Лёгкая зарядка после пробуждения, чтобы разогнать кровь и проснуться.' },
+  morning: { name: 'Утренняя зарядка (10 минут)', desc: 'Лёгкая зарядка после пробуждения.' },
   steps: { name: '10 000 шагов', desc: 'Прогуляйся или побегай, набери 10 000 шагов за день.' },
   plank: { name: 'Планка (сегодня)', desc: 'Стой в планке максимально долго, фиксируй время.' },
   water: { name: 'Вода 1,5–2 литра', desc: 'Пей воду в течение дня, норма 1,5–2 литра.' },
@@ -10,6 +10,7 @@ const HABITS = {
 };
 
 const state = { habits: {} };
+let monthlyChartInstance = null;
 
 // Локальная дата в формате YYYY-MM-DD без toISOString (чтобы не сдвигать день по часовому поясу)
 function getTodayKey() {
@@ -228,6 +229,74 @@ function render() {
   if (empty) {
     empty.hidden = hasAnyLog;
   }
+
+  renderMonthlyChart();
+}
+
+function renderMonthlyChart() {
+  const ctx = document.getElementById('monthlyChart');
+  if (!ctx) return;
+
+  if (monthlyChartInstance) {
+    monthlyChartInstance.destroy();
+  }
+
+  const labels = [];
+  const data = [];
+  const today = new Date();
+
+  // Собираем данные за последние 30 дней
+  for (let i = 29; i >= 0; i--) {
+    const d = new Date(today);
+    d.setDate(today.getDate() - i);
+    const key = getDateKey(d);
+
+    // Формат даты для графика (например, "05.11")
+    const dayStr = String(d.getDate()).padStart(2, '0') + '.' + String(d.getMonth() + 1).padStart(2, '0');
+    labels.push(dayStr);
+
+    // Считаем, сколько привычек выполнено в этот день
+    let doneCount = 0;
+    Object.keys(state.habits).forEach(habitKey => {
+      if (state.habits[habitKey].logs[key] === true) {
+        doneCount++;
+      }
+    });
+    data.push(doneCount);
+  }
+
+  monthlyChartInstance = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Выполнено привычек',
+        data: data,
+        backgroundColor: '#5E7892',
+        borderRadius: 4,
+        maxBarThickness: 12
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 6,
+          ticks: { stepSize: 1, color: '#4A5A6A' },
+          grid: { color: '#E2DDD1' }
+        },
+        x: {
+          ticks: { color: '#4A5A6A', maxRotation: 45, minRotation: 45 },
+          grid: { display: false }
+        }
+      }
+    }
+  });
 }
 
 function showCorruptError() {
