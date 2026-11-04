@@ -28,9 +28,13 @@
   - Использование `localStorage` API для персистентности данных.
 - **Chart.js (v4+):** Подключение через CDN для отрисовки статистики на `<canvas>`.
 
+## Запуск проекта
+1. Склонируйте репозиторий:
+   ```bash
+   git clone https://github.com/marlmai/tracker.git
+
 ## 📁 Архитектура проекта
 
-Проект не использует сборщики (Webpack/Vite) и транспайлеры (Babel). Весь код запускается нативно в браузере.
 
 ```text
 /
@@ -40,6 +44,3 @@
 ├── app.js          # Основная логика (State, DOM, LocalStorage, Charts)
 └── README.md       # Описание проекта
 
-1. Склонируйте репозиторий:
-   ```bash
-   git clone https://github.com/marlmai/tracker.git
