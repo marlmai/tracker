@@ -367,17 +367,17 @@ a:hover {
 
 /* Переключатель «Сегодня» */
 .toggle-btn {
-  align-self: flex-start;
-  padding: 10px 20px;
-  border: 1px solid #CBD5E1 !important;
-  border-radius: var(--radius);
-  background: #F1F5F9 !important;
-  color: #64748B !important;
-  box-shadow: none !important;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
+align-self: flex-start;
+padding: 10px 20px;
+border: 1px solid #CBD5E1;
+border-radius: var(--radius);
+background: #F1F5F9;
+color: #64748B;
+box-shadow: none;
+font-size: 0.95rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.2s ease;
 }
 
 .toggle-btn:focus-visible {
@@ -397,9 +397,8 @@ a:hover {
 .toggle-btn[aria-pressed="true"] {
 background: var(--success) !important;
 color: #ffffff !important;
-border: none !important;
-box-shadow: 0 4px 10px rgba(142, 158, 131, 0.4) !important;
-font-weight: 600;
+border-color: var(--success) !important;
+font-weight: 700; /* Жирный текст */
 }
 
 /* Статистика и streak */
@@ -484,10 +483,13 @@ font-weight: 600;
 
 /* Карточка в состоянии выполнено */
 .card-done {
+/* Делаем полную зеленую рамку */
 border: 2px solid var(--success) !important;
-background-color: #F4F7F4 !important;
-box-shadow: 0 8px 20px rgba(142, 158, 131, 0.25) !important;
-transform: translateY(-4px);
+/ Добавляем очень легкий зеленоватый фон, чтобы карточка выделялась */
+background-color: #F7FAF5 !important;
+/ Добавляем зеленую тень для объема */
+box-shadow: 0 4px 15px rgba(142, 158, 131, 0.2) !important;
+transform: translateY(-2px); / Слегка приподнимаем карточку */
 }
 
 .card-footer {
@@ -854,10 +856,17 @@ html {
   .btn-primary {
     padding: 12px 24px !important;
     font-size: 1rem !important;
-    width: 100% !important;
     max-width: 300px;
     margin: 0 auto;
     display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section h1 {
+    white-space: normal !important;
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
   }
 }
 
