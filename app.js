@@ -160,6 +160,7 @@ function render() {
   if (bestEl) bestEl.textContent = bestStreak;
   if (fillEl) {
     const total = Object.keys(HABITS).length;
+    // const pct = total > 0 ? Math.round((doneToday / total) * 100) : 0;
     const pct = total > 0 ? Math.round((doneToday / total) * 100) : 0;
     fillEl.style.width = pct + '%';
   }
@@ -245,8 +246,8 @@ function renderMonthlyChart() {
   const data = [];
   const today = new Date();
 
-  // Собираем данные за последние 30 дней
-  for (let i = 29; i >= 0; i--) {
+  // Собираем данные за последние 7 дней
+  for (let i = 7; i >= 0; i--) {
     const d = new Date(today);
     d.setDate(today.getDate() - i);
     const key = getDateKey(d);
